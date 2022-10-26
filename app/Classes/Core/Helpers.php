@@ -57,6 +57,7 @@ class Helpers
 	 * @param string $field_name
 	 * @param string $content_default
 	 * @param mixed $page
+	 * @return string
 	 */
 	public static function tf(string $field_name, $page = 'option', string $content_default = ''): string
 	{
@@ -64,8 +65,12 @@ class Helpers
 			return '';
 		}
 
-		$value = the_field($field_name, $page) ?? the_field($field_name, $page);
-
-		return $value && '' !== $value ? $value : $content_default;
+		$value = get_field($field_name, $page) ?? get_field($field_name, $page);
+		
+		if (! is_array($value)) {
+			return $value && '' !== $value ? $value : $content_default;
+		} else {
+			return 'O campo chamado é um array e não pode ser impresso.';
+		}
 	}
 }
