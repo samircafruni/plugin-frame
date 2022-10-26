@@ -67,10 +67,10 @@ class Helpers
 
 		$value = get_field($field_name, $page) ?? get_field($field_name, $page);
 		
-		if (! is_array($value)) {
+		if ( (! is_array($value)) && (! is_object($value)) ) {
 			return $value && '' !== $value ? $value : $content_default;
 		} else {
-			return 'O campo chamado é um array e não pode ser impresso.';
+			return 'O campo chamado é um array ou um objeto e não pode ser impresso.';
 		}
 	}
 }
