@@ -20,7 +20,7 @@ defined ( 'ABSPATH' ) || exit;
 class Helpers
 {
     /**
-     * Debug and Die.
+     * Dump and Die.
      *
      * @param mixed $val
      * @return void
