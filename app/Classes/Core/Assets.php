@@ -19,11 +19,15 @@ defined('ABSPATH') || exit;
  */
 class Assets
 {
-    public function __construct()
+    public function __construct(bool $registerAssets = true, bool $registerAdminAssets = true)
     {
-        add_action('wp_enqueue_scripts', [$this, 'registerAssets'], 99);
+        if ($registerAssets) {
+            add_action('wp_enqueue_scripts', [$this, 'registerAssets'], 99);
+        }
 
-        add_action('admin_enqueue_scripts', [$this, 'registerAdminAssets'], 99);
+        if ($$registerAdminAssets) {
+            add_action('admin_enqueue_scripts', [$this, 'registerAdminAssets'], 99);
+        }
     }
 
     /**
