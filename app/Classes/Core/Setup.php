@@ -26,14 +26,8 @@ use App\Classes\Libs\Acf\{
 /**
  * Classe inicia o plugin
  */
-
 class Setup
 {
-    /**
-     * @var bool
-     */
-    public $devMode;
-
     /**
      * Por padrão, o modo de desenvolvimento está desabilitado.
      * No final do arquivo principal quando esta classe é
@@ -41,11 +35,8 @@ class Setup
      *
      * @param bool $devMode
      */
-    public function __construct($devMode = false)
+    public function __construct($devMode = true)
     {
-        // Inicia o modo debug
-        $this->devMode = $devMode;
-
         // Carrega o plugin após os demais terem sido carregados
         add_action('plugins_loaded', [$this, 'handler']);
     }
@@ -57,21 +48,25 @@ class Setup
      */
     public function handler()
     {
+        // Se não for passado o parâmetro "false"
         // Registra os assets do plugin
-        $this->registerAssets();
-
-        // Registra as requisições Ajax do plugin
-        $this->registerAjax();
-
-        // Registra a página de opções do plugin
-        $this->registerPages();
+        $this->registerAssets(false);
 
         // Se não for passado o parâmetro "false"
-        // inicia as libs auxiliáres do plugin
+        // Registra as requisições Ajax do plugin
+        $this->registerAjax(false);
+
+        // Se não for passado o parâmetro "false"
+        // Registra a página de opções do plugin
+        $this->registerPages(false);
+
+        // Se não for passado o parâmetro "false"
+        // inicia as libs auxiliares do plugin
         $this->registerLibs(false);
-        
-        // Verifica se a classe "Debug" esta ativa.
-        $this->enableDebug();
+
+        // Se não for passado o parâmetro "false"
+        // Habilita o modo "Debug"
+        $this->enableDebug(false);
     }
 
     /**
@@ -79,9 +74,11 @@ class Setup
      *
      * @return void
      */
-    public function registerAjax(): void
+    public function registerAjax(bool $parm = true): void
     {
-        new Ajax();
+        if ($parm) {
+            new Ajax();
+        }
     }
 
     /**
@@ -89,9 +86,11 @@ class Setup
      *
      * @return void
      */
-    public function registerAssets(): void
+    public function registerAssets(bool $parm = true): void
     {
-        new Assets();
+        if ($parm) {
+            new Assets(false, false);
+        }
     }
 
     /**
@@ -99,14 +98,15 @@ class Setup
      *
      * @return void
      */
-    private function registerPages(): void
+    private function registerPages(bool $parm = true): void
     {
-        new Page();
-
+        if ($parm) {
+            new Page();
+        }
     }
 
     /**
-     * inicia as libs auxiliáres do plugin
+     * inicia as libs auxiliares do plugin
      * 
      * @return void
      */
@@ -123,9 +123,9 @@ class Setup
      *
      * @return void
      */
-    private function enableDebug(): void
+    private function enableDebug(bool $parm = true): void
     {
-        if ($this->devMode) {
+        if ($parm) {
             new Debug();
         }
     }
