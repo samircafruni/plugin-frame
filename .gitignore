@@ -1,0 +1,24 @@
+# JetBrains IDE
+.idea/
+
+# VisualStudioCode
+.vscode/
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+.ionide/
+
+# Project Paths
+node_modules/
+vendor/
+dist/
+logs/*
+
+# Others
+/composer.lock
+/package.lock
+/package-lock.json
+/yarn.lock
+/yarn-error.log
+

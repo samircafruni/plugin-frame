@@ -1,0 +1,33 @@
+{
+    "name": "studiovisual/plugin-name",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Studio Visual",
+            "email": "atendimento@studiovisual.com.br"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/studiovisual/plugin-name"
+    },
+    "type": "wordpress-plugin",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "classmap": [
+            "app",
+            "app/Classes",
+            "app/Controllers"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
