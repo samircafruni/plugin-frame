@@ -25,7 +25,7 @@ class Assets
             add_action('wp_enqueue_scripts', [$this, 'registerAssets'], 99);
         }
 
-        if ($$registerAdminAssets) {
+        if ($registerAdminAssets) {
             add_action('admin_enqueue_scripts', [$this, 'registerAdminAssets'], 99);
         }
     }
