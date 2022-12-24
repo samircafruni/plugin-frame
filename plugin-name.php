@@ -92,6 +92,3 @@ define ('PLUGIN_NAME_PLUGIN_VIEWS', PLUGIN_NAME_PLUGIN_URI . 'dist/resources/vie
 */
 
 new \App\Classes\Core\Setup();
-
-
-

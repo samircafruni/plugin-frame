@@ -16,12 +16,14 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-use App\Classes\Tests\Debug;
 use App\Controllers\Web\Admin\Page;
 use App\Controllers\Gutenberg\ProjectX;
 use App\Classes\Libs\Acf\{
     RegisterAcfFields,
     RegisterAcfPageOptions
+};
+use App\Classes\Libs\Acf\ProjectX\{
+    RegisterAcfHeader as projectXHeader
 };
 
 /**
@@ -67,12 +69,13 @@ class Setup
         // Registra a página de opções do plugin
         $this->registerPages();
 
+        // Registra os blocos Gutenberg do plugin
+        $this->registerGutenberg();
+
         // Se não for passado o parâmetro "false"
         // inicia as libs auxiliáres do plugin
-        $this->registerLibs(false);
-        
-        // Verifica se a classe "Debug" esta ativa.
-        $this->enableDebug();
+        $this->registerLibs(true);
+    
     }
 
     /**
@@ -125,19 +128,8 @@ class Setup
         if ($parm) {
             new RegisterAcfFields();
 		    new RegisterAcfPageOptions();
+            new projectXHeader();
         }
 	}
-
-    /**
-     * Habilita a classe de debug
-     *
-     * @return void
-     */
-    private function enableDebug(): void
-    {
-        if ($this->devMode) {
-            new Debug();
-        }
-    }
 
 }

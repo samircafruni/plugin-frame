@@ -19,13 +19,16 @@ if (!defined('ABSPATH')) {
 use App\Classes\Core\Block;
 
 /**
- * Gerencia a página de manipulação do plugin no WP Admin
+ * Gerencia os dados dos blocos a serem criados para o projetoX
  */
 class ProjectX
 {
 
+    public $project;
+
     public function __construct()
     {
+        $this->project = 'project-x';
         $this->setHeader();
     }
 
@@ -37,12 +40,13 @@ class ProjectX
     public function setHeader(): void
     {
         new Block(
-            'projeto-x-header',
+            $this->project,
+            'header',
             'Header Totvs Projeto X',
             'Header desenvolvido para o Projeto X',
             'Layout',
             'menu',
-            ['header', 'rodape', 'layout', 'projeto-x']
+            ['header', 'rodape', 'layout', $this->project]
         );
     }
 

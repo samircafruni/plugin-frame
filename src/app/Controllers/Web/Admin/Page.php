@@ -17,9 +17,6 @@ if (!defined('ABSPATH')) {
 }
 
 use App\Classes\Core\Helpers;
-use App\Controllers\Api\Hotmart\Sales;
-use App\Controllers\Api\Ipressnet\Products;
-use League\Csv\Reader;
 
 /**
  * Gerencia a página de manipulação do plugin no WP Admin

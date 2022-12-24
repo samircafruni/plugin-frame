@@ -1,0 +1,1 @@
+<h1>Página do Plugin</h1>

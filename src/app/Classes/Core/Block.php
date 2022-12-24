@@ -22,6 +22,11 @@ class Block {
     /**
      * @var string
      */
+    private $project;
+
+    /**
+     * @var string
+     */
     private $slug;
  
     /**
@@ -53,6 +58,7 @@ class Block {
      * logs all data from the Gutenberg block and logs
      * 
      * @access public
+     * @param string $project
      * @param string $slug
      * @param string $title
      * @param string $description
@@ -60,8 +66,9 @@ class Block {
      * @param string $icon
      * @param array $keywords
      */
-    public function __construct($slug, $title, $description, $category, $icon, $keywords)
+    public function __construct($project, $slug, $title, $description, $category, $icon, $keywords)
     {
+        $this->setProject($project);
         $this->setSlug($slug);
         $this->setTitle($title);
         $this->setDescription($description);
@@ -80,14 +87,35 @@ class Block {
     public function createBlock(): void
     {
         acf_register_block([
-            'name'				=> $this->getSlug(),
+            'name'				=> $this->getProject() . '-' . $this->getSlug(),
             'title'				=> __($this->getTitle()),
             'description'		=> __($this->getDescription()),
-            'render_template'	=> PLUGIN_NAME_PLUGIN_VIEWS . 'blocks/' . $this->getSlug() . '/index.php',
+            'render_template'	=> PLUGIN_NAME_PLUGIN_VIEWS . 'gutenberg/' . $this->getProject() . '/' . $this->getSlug() . '.php',
             'category'			=> $this->getCategory(),    
             'icon'				=> $this->getIcon(),
             'keywords'			=> $this->getKeywords(),
         ]);
+    }
+
+     /**
+     * Get Gutenberg block project value
+     * 
+     * @return string
+     */ 
+    public function getProject(): string
+    {
+        return $this->project;
+    }
+
+    /**
+     * Set Gutenberg block project value
+     *
+     * @param  string $slug
+     * @return void
+     */
+    private function setProject($project): void
+    {
+        $this->project = $project;
     }
 
     /**

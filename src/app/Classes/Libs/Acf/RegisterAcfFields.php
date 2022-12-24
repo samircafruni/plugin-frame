@@ -2,12 +2,12 @@
 /**
  * Author - Plugin Name
  *
- *  @package plugin-name/Classes/Plugins/Acf
+ *  @package plugin-name/Classes/Libs/Acf
  *  @since   1.0.0
  *  @version 1.0.0
  */
 
-namespace App\Classes\Plugins\Acf;
+namespace App\Classes\Libs\Acf;
 
 /**
  * Previne que o arquivo não seja acessado diretamente por uma URL

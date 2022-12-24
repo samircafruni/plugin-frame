@@ -7,7 +7,7 @@ const jsmin = require('gulp-jsmin');
 
 function buildSass () {
     return gulp.src([
-        'src/resources/assets/sass/*.scss'
+        'src/resources/assets/styles/*.scss'
     ])
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(gulp.dest('dist/resources/assets/styles'));
@@ -15,7 +15,7 @@ function buildSass () {
 
 function buildSassMinify () {
     return gulp.src([
-        'src/resources/assets/sass/*.scss'
+        'src/resources/assets/styles/*.scss'
     ])
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('dist/resources/assets/styles'));
@@ -23,10 +23,10 @@ function buildSassMinify () {
 
 function babelJS () {
     return gulp.src([
-        'src/resources/assets/js/**/*.js'
+        'src/resources/assets/scripts/**/*.js'
     ])
     .pipe(babel({ presets: ['@babel/env'] }))
-    .pipe(gulp.dest('dist/resources/assets/js'));
+    .pipe(gulp.dest('dist/resources/assets/scripts'));
 }
 
 function buildImage () {

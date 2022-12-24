@@ -23,7 +23,7 @@ class Assets
     {
         add_action('wp_enqueue_scripts', [$this, 'registerAssets'], 99);
 
-        add_action('admin_enqueue_scripts', [$this, 'registerAdminAssets'], 99);
+        // add_action('admin_enqueue_scripts', [$this, 'registerAdminAssets'], 99);
     }
 
     /**
@@ -33,9 +33,9 @@ class Assets
      */
     public function registerAssets(): void
     {
-        wp_enqueue_style('plugin-name', PLUGIN_NAME_PLUGIN_STYLES. 'main.css', false, true);
+        wp_enqueue_style('plugin-name', PLUGIN_NAME_PLUGIN_STYLES. 'index.css', false, true);
 
-        wp_enqueue_script('plugin-name', PLUGIN_NAME_PLUGIN_SCRIPTS . 'main.js', ['jquery'], null, true);
+        wp_enqueue_script('plugin-name', PLUGIN_NAME_PLUGIN_SCRIPTS . 'index.js', ['jquery'], null, true);
     }
 
     /**
@@ -43,16 +43,16 @@ class Assets
      *
      * @return void
      */
-    public function registerAdminAssets(): void
-    {
-        if (get_current_screen()->id === 'toplevel_page_plugin_name_main_page') {
+    // public function registerAdminAssets(): void
+    // {
+    //     if (get_current_screen()->id === 'toplevel_page_plugin_name_main_page') {
 
-            wp_enqueue_style('plugin-name-admin', PLUGIN_NAME_PLUGIN_STYLES. 'admin.css', false, true);
+    //         wp_enqueue_style('plugin-name-admin', PLUGIN_NAME_PLUGIN_STYLES. 'admin.css', false, true);
 
-            wp_enqueue_script('plugin-name-admin', PLUGIN_NAME_PLUGIN_SCRIPTS . 'admin.js', ['jquery'], null, true);
+    //         wp_enqueue_script('plugin-name-admin', PLUGIN_NAME_PLUGIN_SCRIPTS . 'admin.js', ['jquery'], null, true);
 
-            // Inicializa a rota das requisições Ajax
-            wp_localize_script('plugin-name-admin', 'api', ['ajax_url' => admin_url('admin-ajax.php')]);
-        }
-    }
+    //         // Inicializa a rota das requisições Ajax
+    //         wp_localize_script('plugin-name-admin', 'api', ['ajax_url' => admin_url('admin-ajax.php')]);
+    //     }
+    // }
 }

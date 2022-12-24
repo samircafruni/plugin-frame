@@ -24,9 +24,9 @@
     },
     "autoload": {
         "classmap": [
-            "src/app",
-            "src/app/Classes",
-            "src/app/Controllers"
+            "dist/app",
+            "dist/app/Classes",
+            "dist/app/Controllers"
         ],
         "psr-4": {
             "App\\": "app/"
