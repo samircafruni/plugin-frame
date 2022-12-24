@@ -1,0 +1,35 @@
+{
+    "name": "author/plugin-name",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Author Name",
+            "email": "author@email.com.br"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/user-name/plugin-name"
+    },
+    "type": "wordpress-plugin",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": ">=7.4",
+        "log1x/navi": "^2.0",
+        "stoutlogic/acf-builder": "^1.12"
+    },
+    "autoload": {
+        "classmap": [
+            "src/app",
+            "src/app/Classes",
+            "src/app/Controllers"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "name-plugin",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "version": "1.0.0",
+  "author": "Nome Author",
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/user-name/plugin-name.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.57.1"
+  },
+  "bugs": {
+    "url": "https://github.com/user-name/plugin-name/issues"
+  },
+  "homepage": "https://github.com/user-name/plugin-name#readme",
+  "main": "index.js",
+  "license": "ISC"
+}
