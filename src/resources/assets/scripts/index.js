@@ -1,3 +1,5 @@
-function greet(input) {
-    return input ?? "Hello world";
-}
+const { ProjectXHeader } = require("./gutenberg/projectx/header");
+
+window.addEventListener('load', function () {
+    new ProjectXHeader
+});
