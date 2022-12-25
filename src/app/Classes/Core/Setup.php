@@ -17,11 +17,11 @@ if (!defined('ABSPATH')) {
 }
 
 use App\Controllers\Web\Admin\Page;
-use App\Controllers\Gutenberg\ProjectX;
 use App\Classes\Libs\Acf\{
     RegisterAcfFields,
     RegisterAcfPageOptions
 };
+use App\Controllers\Gutenberg\ProjectX;
 use App\Classes\Libs\Acf\ProjectX\{
     RegisterAcfHeader as projectXHeader
 };
