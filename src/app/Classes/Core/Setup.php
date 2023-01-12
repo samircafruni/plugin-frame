@@ -127,7 +127,7 @@ class Setup
     {
 	if ($parm) {
 	    new RegisterAcfFields();
-		    new RegisterAcfPageOptions();
+	    new RegisterAcfPageOptions();
 	    new projectXHeader();
 	}
     }
