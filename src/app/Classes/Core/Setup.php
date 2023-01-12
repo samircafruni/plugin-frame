@@ -124,12 +124,11 @@ class Setup
      * @return void
      */
     private function registerLibs(bool $parm = true): void
-	{
-        if ($parm) {
-            new RegisterAcfFields();
+    {
+	if ($parm) {
+	    new RegisterAcfFields();
 		    new RegisterAcfPageOptions();
-            new projectXHeader();
-        }
+	    new projectXHeader();
 	}
-
+    }
 }
