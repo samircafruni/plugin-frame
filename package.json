@@ -1,0 +1,35 @@
+{
+  "name": "core-setup-plugin",
+  "description": "",
+  "version": "1.0.0",
+  "author": "",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "license": "ISC",
+  "scripts": {
+    "build": "npx mix && npx mix",
+    "build --production": "npx mix --production && npx mix --production",
+    "dev": "npx mix watch",
+    "dump": "composer dump-autoload"
+  },
+  "main": "app.js",
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "mix-tailwindcss": "^1.3.0",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.57.1",
+    "sass-loader": "^12.6.0",
+    "tailwindcss": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.6.4"
+  }
+}
